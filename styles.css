@@ -1,0 +1,214 @@
+#game-container {
+    width: 800px;
+    height: 400px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    background-color: #87CEEB;
+}
+
+#unicorn {
+    width: 60px;
+    height: 60px;
+    background: url('assets/unicorn.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
+#obstacle {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 45px;
+    right: 0;
+    background: url('assets/flower.png') no-repeat center center;
+    background-size: contain;
+}
+
+#obstacles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 45px;
+    background: url('assets/flower.png') no-repeat center center;
+    background-size: contain;
+}
+
+#rainbow {
+    width: 80px;
+    height: 80px;
+    background: url('assets/rainbow.png') no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+    animation: moveRainbow 60s linear infinite;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+.jump {
+    animation: jump 0.5s;
+}
+
+.dance {
+    animation: dance 0.5s;
+}
+
+@keyframes jump {
+    0%, 100% { bottom: 50px; }
+    50% { bottom: 200px; }
+}
+
+@keyframes dance {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+}
+
+#title-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #87CEEB;
+    z-index: 10;
+}
+
+#title-screen img {
+    max-width: 80%;
+    max-height: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.instructions {
+    font-size: 24px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 50px;
+    background: linear-gradient(
+        to bottom,
+        #90EE90 0%,
+        #228B22 100%
+    );
+    animation: scrollGround 4s linear infinite;
+}
+
+.ground::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 15px;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            #90EE90 0,
+            #90EE90 10px,
+            #228B22 10px,
+            #228B22 20px
+        );
+}
+
+@keyframes scrollGround {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+#game-over-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    visibility: hidden;
+}
+
+#game-over-screen.visible {
+    visibility: visible;
+}
+
+#game-over-screen img {
+    max-width: 80%;
+    max-height: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+#win-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    visibility: hidden;
+}
+
+#win-screen.visible {
+    visibility: visible;
+}
+
+#win-screen img {
+    max-width: 80%;
+    max-height: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+@keyframes moveRainbow {
+    0% { right: 20px; }
+    100% { right: 100%; }
+}

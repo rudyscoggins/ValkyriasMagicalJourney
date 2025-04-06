@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicorn Runner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div class="ground"></div>
+        <div id="title-screen">
+            <img src="assets/TitleScreen.png" alt="Title Screen">
+            <div class="instructions">Press SPACE to Start</div>
+        </div>
+        <div id="game-over-screen">
+            <img src="assets/TryAgain.png" alt="Try Again">
+            <div class="instructions">Press SPACE</div>
+        </div>
+        <div id="win-screen">
+            <img src="assets/YouWin.png" alt="You Win">
+            <div class="instructions">Press SPACE</div>
+        </div>
+        <div id="game-content" class="hidden">
+            <div id="rainbow"></div>
+            <div id="unicorn"></div>
+            <div id="obstacles-container"></div>
+            <div id="score">Score: <span id="score-value">0</span></div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
