@@ -114,7 +114,9 @@ function moveFlowers() {
         }
 
         // Update score as soon as flower moves completely off screen
-        if (flower.position <= -40) {
+        const gameContainer = document.getElementById('game-container');
+        const containerRect = gameContainer.getBoundingClientRect();
+        if (flowerRect.right < containerRect.left) {
             flower.element.remove();
             score++;
             scoreElement.textContent = score;
