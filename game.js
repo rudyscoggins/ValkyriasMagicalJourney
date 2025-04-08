@@ -101,7 +101,7 @@ function createFlower() {
 
 function moveFlowers() {
     flowers = flowers.filter(flower => {
-        flower.position -= 5;
+        flower.position -= 7; //Slightly easier
         flower.element.style.right = window.innerWidth - flower.position + 'px';
         
         // Check collision first
