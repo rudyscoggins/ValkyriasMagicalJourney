@@ -24,16 +24,26 @@ const jumpSound = new Audio('assets/jump.wav');
 
 document.addEventListener('keydown', (event) => {
     if (event.code === 'Space') {
-        if (!gameStarted) {
-            startGame();
-        } else if (gameOver) {
-            hideGameOver();
-            resetGame();
-        } else if (!isJumping) {
-            jump();
-        }
+        handleJumpAction();
     }
 });
+
+// Add touch controls for mobile devices
+document.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Prevent default touch behavior
+    handleJumpAction();
+});
+
+function handleJumpAction() {
+    if (!gameStarted) {
+        startGame();
+    } else if (gameOver) {
+        hideGameOver();
+        resetGame();
+    } else if (!isJumping) {
+        jump();
+    }
+}
 
 function startGame() {
     gameStarted = true;
